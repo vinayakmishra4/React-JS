@@ -28,6 +28,7 @@ function App() {
         >
           Count is {count}
         </button>
+        <script src="index.js"></script>
       </section>
 
       <div className="ticks"></div>
