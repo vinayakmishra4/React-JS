@@ -4,10 +4,12 @@ interface Props
 {
     item:string[];
     heading : string;
+    // function using props
+    onselectitem:(item:String) => void;
 }
 
 
-function ListGroup({item,heading}:Props) {
+function ListGroup({item,heading,onselectitem}:Props) {
 
     
     // Hook: selectIndex holds the value, setselectIndex updates it
@@ -26,7 +28,12 @@ function ListGroup({item,heading}:Props) {
                         className={selectIndex === index ? "list-group-item active" : "list-group-item"} 
                         key={index}
                         // Fixed function call here: changed selectIndex(index) to setselectIndex(index)
-                        onClick={() => { setselectIndex(index); }}
+                        onClick={() => 
+                        {
+                            setselectIndex(index);
+                            onselectitem(item);
+                        }}
+
                     >
                         {item}
                     </li>
